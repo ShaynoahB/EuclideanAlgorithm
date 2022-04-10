@@ -1,0 +1,40 @@
+import java.util.*;
+public class EuclideanAlgorithm {
+    public static void main ( String[] args ){
+        int digit1,digit2;
+        //Create Scanner Object for User Input
+        Scanner Scan= new Scanner(System.in);
+
+        System.out.println("Euclidean Algorithm Calculator"+"\n"+"Please Enter Two Digits to Find the GCD");
+        digit1=Scan.nextInt();
+        digit2=Scan.nextInt();
+        //Display Results
+        System.out.println("The GCD of ["+digit1+"] and ["+digit2+"] is:"+FindGCD(digit1,digit2));
+
+    }
+    public static int FindGCD(int x,int y){
+        //Ensure X is always the larger number
+        int temp;
+        if(y>x){
+            temp=y;
+            y=x;
+            x=temp;
+        }
+
+        int quotient,remainder;
+        do {
+            //Get Quotient
+            quotient=x/y;
+            //Get Remainder
+            remainder=x%y;
+            //Let X be Y
+            x=y;
+            //Let Y be the Remainder
+            y=remainder;
+        }
+        //Loop til Remainder is 0
+        while(remainder!=0);
+           return x;
+
+    }
+}
